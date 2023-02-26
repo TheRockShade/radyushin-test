@@ -1,7 +1,14 @@
-import React from "react";
+import Block from "./components/Block/Block";
+import Form from "./components/Form/Form";
 
-function App() {
-  return <div className="App">test</div>;
-}
+const App = () => {
+  return (
+    <div className="App">
+      <Block>
+        <Form />
+      </Block>
+    </div>
+  );
+};
 
 export default App;
