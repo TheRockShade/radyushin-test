@@ -1,5 +1,5 @@
 const FORM_FIELDS = [
-  { name: "firstName", placeholder: "Владислав", label: "Имя", id: 1 },
+  { name: "firstName", placeholder: "Владислав", label: "Имя", id: 1, required: true },
   { name: "secondName", placeholder: "Быков", label: "Фамилия", id: 2 },
   {
     name: "sex",
@@ -7,7 +7,7 @@ const FORM_FIELDS = [
     label: "Пол",
     id: 3,
     children: [
-      { value: 1, label: "Мужчина" },
+      { value: 1, label: "Мужчина", defaultChecked: true },
       { value: 2, label: "Женщина" },
     ],
   },
@@ -18,6 +18,7 @@ const FORM_FIELDS = [
     label: "E-mail",
     type: "email",
     id: 5,
+		required: true
   },
   { name: "birthDate", label: "Дата рождения", type: "date", id: 6 },
   {
@@ -28,7 +29,7 @@ const FORM_FIELDS = [
     children: [
       { name: "russia", value: 1, label: "Россия" },
       { name: "usa", value: 2, label: "США" },
-      { name: "australia", value: 3, label: "Австралия" },
+      { name: "australia", value: 3, label: "Австралия", selected: true },
     ],
   },
   {
@@ -45,7 +46,8 @@ export type FORM_TYPE_INPUT = {
   id: number;
   placeholder?: string;
   type?: string;
-  children?: { value: number; label: string }[];
+	required?: boolean;
+  children?: { value: number; label: string; defaultChecked?: boolean; selected?: boolean }[];
 };
 
 export default FORM_FIELDS;

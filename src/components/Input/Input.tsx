@@ -7,8 +7,10 @@ const Input = (props: FORM_TYPE_INPUT) => {
     <Label label={props.label}>
       <input
         className={s.container}
+        name={props.name}
         type={props.type}
         placeholder={props.placeholder}
+        required={props.required}
       />
     </Label>
   );

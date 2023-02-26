@@ -1,4 +1,5 @@
 import FORM_FIELDS, { FORM_TYPE_INPUT } from "../../data/formFields";
+import Button from "../Button/Button";
 import Input from "../Input/Input";
 import Radio from "../Radio/Radio";
 import Select from "../Select/Select";
@@ -21,7 +22,18 @@ const Form = () => {
     return Component;
   };
 
-  return <form>{FORM_FIELDS.map((field) => getField(field))}</form>;
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+		console.log(e.target);
+		
+  };
+
+  return (
+    <form onSubmit={(e) => onSubmit(e)}>
+      {FORM_FIELDS.map((field) => getField(field))}
+      <Button>Продолжить</Button>
+    </form>
+  );
 };
 
 export default Form;

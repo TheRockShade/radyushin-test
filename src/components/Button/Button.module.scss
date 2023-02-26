@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px 35px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  background: #1d4cf4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+	transition: background-color .3s ease;
+
+	&:hover,
+	&:focus {
+		background-color: darken(#1d4cf4, 10);
+	}
+
+	&:active {
+		background-color: darken(#1d4cf4, 15);
+	}
+}
