@@ -1,13 +1,22 @@
-import { FORM_TYPE_INPUT } from "../../data/formFields";
+import { FORM_INPUT } from "../../types/form";
 import Label from "../Label/Label";
 import s from "./Select.module.scss";
 
-const Select = (props: FORM_TYPE_INPUT) => {
+type Props = {
+  field: FORM_INPUT;
+  onChange?: React.ChangeEventHandler;
+};
+
+const Select = ({ field, onChange }: Props) => {
   return (
-    <Label label={props.label}>
-      <select className={s.container}>
-        {props.children?.map((child) => (
-          <option selected={child.selected} key={child.value}>
+    <Label label={field.label}>
+      <select className={s.container} onChange={onChange}>
+        {field.children?.map((child) => (
+          <option
+            selected={child.selected}
+            value={child.value}
+            key={child.value}
+          >
             {child.label}
           </option>
         ))}

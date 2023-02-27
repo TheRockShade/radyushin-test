@@ -1,16 +1,22 @@
-import { FORM_TYPE_INPUT } from "../../data/formFields";
+import { FORM_INPUT } from "../../types/form";
 import Label from "../Label/Label";
 import s from "./Input.module.scss";
 
-const Input = (props: FORM_TYPE_INPUT) => {
+type Props = {
+  field: FORM_INPUT;
+  onChange?: React.ChangeEventHandler;
+};
+
+const Input = ({ field, onChange }: Props) => {
   return (
-    <Label label={props.label}>
+    <Label label={field.label} error={field.error}>
       <input
         className={s.container}
-        name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}
-        required={props.required}
+        name={field.name}
+        type={field.type}
+        placeholder={field.placeholder}
+        required={field.required}
+        onChange={onChange}
       />
     </Label>
   );

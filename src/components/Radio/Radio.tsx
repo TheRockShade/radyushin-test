@@ -1,19 +1,25 @@
-import { FORM_TYPE_INPUT } from "../../data/formFields";
+import { FORM_INPUT } from "../../types/form";
 import Label from "../Label/Label";
 import s from "./Radio.module.scss";
 
-const Radio = (props: FORM_TYPE_INPUT) => {
+type Props = {
+  field: FORM_INPUT;
+  onChange?: React.ChangeEventHandler;
+};
+
+const Radio = ({ field, onChange }: Props) => {
   return (
-    <Label label={props.label}>
+    <Label label={field.label} error={field.error}>
       <ul className={s.list}>
-        {props.children?.map((child) => (
+        {field.children?.map((child) => (
           <li className={s.item} key={child.value}>
             <label>
               <input
-                type={props.type}
-                name={props.name}
+                type={field.type}
+                name={field.name}
                 value={child.value}
                 defaultChecked={child.defaultChecked}
+                onChange={onChange}
               />
               <span className={s.label}>{child.label}</span>
             </label>

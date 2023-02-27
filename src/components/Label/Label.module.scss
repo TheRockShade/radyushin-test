@@ -1,15 +1,21 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-	&:not(:last-child) {
-		margin-bottom: 20px;
-	}
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 }
 
 .name {
-	margin-bottom: 5px;
-	font-size: 12px;
-	color: white;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: white;
+}
+
+.error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #f13b24;
 }
